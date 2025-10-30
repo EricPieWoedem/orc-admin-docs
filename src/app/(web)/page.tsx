@@ -13,8 +13,8 @@ import { getDocGroups } from "@/data/doc";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "ORC Web & Mobile Guide",
-	description: "Documentation and guides for ORC web and mobile development",
+	title: "ORC Web Admin & Mobile Guide",
+	description: "Documentation and guides for ORC Admin web and mobile development",
 };
 
 export default async function Page() {
@@ -34,7 +34,7 @@ export default async function Page() {
 			<div className="relative mx-auto max-w-7xl">
 				<div className="absolute -inset-x-2 top-0 -z-10 h-[80dvh] overflow-hidden rounded-t-2xl sm:h-88 md:h-112 lg:-inset-x-4 lg:h-128">
 					<iframe
-						title="ORC WEB APPLICATION"
+						title="ORC ADMIN WEB APPLICATION"
 						src={process.env.APP_URL!}
 						className="absolute inset-0 h-full w-full object-cover object-center opacity-90"
 					/>

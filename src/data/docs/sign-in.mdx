@@ -1,27 +1,52 @@
-# The Ghana Card Authentication Interface
+# The Log In Form Interface
 
 This document details the components, functionality, and user interaction flows for the sign-in page. This page serves as the gateway for existing users to access the system.
 
-![Sign In Page|2000X1238](/sign-in-page.webp)
+![Sign In Page|2000X1238](/welcome.png)
 
 ## Title
-**"Welcome Back"**: A prominent heading at the top of the content area, designed to greet returning users and set a welcoming tone.
+ORC Logo
 
-## Core Sign-In Options
-The page offers two primary methods for user authentication:
+## Signing In
+The page allows the user to sign in using the their username and password which is created by the super admin.
 
-### Sign In Using Tax Identification Number (TIN)
-Clicking this button switches the authentication flow to one specifically designed for TIN-based login. This involves an input field for the TIN
-This option caters to non-Ghanaian users who have registered and are identified primarily by their Tax Identification Number within the system.
+### Sign In Form Features
 
-### Sign In Using Ghana Card
-- Input Field Label: "Ghana Card Number (eg. GHA-123456789-0) *"
- 	- Purpose: Clearly instructs the user on the type of information required and provides an example format for guidance.
-	- Required field: Asterisk (*), Indicates that this field is mandatory for proceeding with this sign-in method.
-	- Placeholder Text: "XXXX-XXXXXXXXX-X"
-	- Purpose: Provides a visual cue of the expected format for the Ghana Card Number, assisting users in correctly entering their information.
-	- Input Type: A text field, with built-in formatting or validation to enforce the Ghana Card Number structure.
-	- Validation: Client-side and server-side validation ensures the entered Ghana Card Number is valid and conforms to the specified format.
+- **Input Field Label**: "USERNAME"
+ 	- Purpose: Clearly instructs the user to enter their username
+	- Placeholder Text: "Enter your username"
 
-Sign In Button:
-Upon clicking, this button initiates the authentication process using the entered Ghana Card Number. This would typically involve sending the entered number to the server for verification against registered user accounts. Further steps (e.g., password prompt, OTP verification) would likely follow if the number is valid and recognized.
+- **Input Field Label**: "PASSWORD"
+ 	- Purpose: Instructs the user to enter their password
+	- Placeholder Text: "..........."
+	- Has a **Forgot Password?** Link to the right of the label that allows the user to reset their password when forgotten
+	- Has a show/hide Icon to the right of the input that the user can toggle to show or hide password
+
+- **Remember Me** Checkbox
+	- When checked, keeps the user's login details in memory so the user does not need to re-enter their log in credentials on next log in
+
+- **Sign In** Button:
+ 	- Upon clicking, this button initiates the authentication process using the entered username and password. This would direct the user to the main dashboard once the credentials are validated.
+
+## Filled State
+
+![Sign In Page|2000X1238](/signin.png)
+
+## Password Reset
+
+When the user forgets their password, clicking the **Forgot Password?** Link directs the user to a password reset page.
+
+![Sign In Page|2000X1238](/signin2.png)
+
+#### Form Features
+
+- Title: "Forgot Password"
+- Description: "Enter your username to reset your password."
+
+- **Input Field Label**: "Username"
+ 	- Purpose: Permits user to fill in their username
+	- Placeholder Text: Username
+
+- **RequestLink** Button:
+ - Clicking it directs user on how to reset their password
+

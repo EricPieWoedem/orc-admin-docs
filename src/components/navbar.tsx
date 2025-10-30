@@ -69,7 +69,7 @@ function MobileNavigation({
 						<div className="mt-6 flex flex-col gap-y-2">
 							<CloseButton
 								as={Link}
-								href={process.env.APP_URL ?? "https://web.dev.apps.orc.gov.gh/"}
+								href={process.env.APP_URL ?? "https://web.dev.apps.orc.gov.gh/admin/login"}
 								target="_blank"
 								className="rounded-md gap-x-1.5 items-center justify-start inline-flex px-4 py-1 text-sm/7 font-semibold text-gray-950 hover:bg-gray-950/5"
 							>

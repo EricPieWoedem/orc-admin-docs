@@ -1,57 +1,74 @@
 # Dashboard Page
 
-This document outlines the layout, key components, and functionality of the system's main dashboard. The dashboard serves as the user's centralized control panel after successful authentication.
+This document is a full feature specification for the application's main Dashboard UI. It describes the visual elements shown in the provided screenshots and explains the intended behaviors, data sources, accessibility considerations, component mapping, and acceptance criteria for each feature.
 
-![Dashboard Page|2000x1238](/dashboard.png)
+![Dashboard Overview](/dashboard1.png)
+![Dashboard Charts and Timeline](/dashboard2.png)
+![Approved Transactions Summary](/dashboard3.png)
 
-## Title
-"Welcome! [User’s Full Name]": Personalized greeting prominently displayed at the top-left of the page, confirming user login and engagement.
+## Purpose
 
-## Navigation Bar
-A persistent top navigation bar providing access to major service categories:
-- Name Search & Reservation
-- Registration & Incorporation
-- Amendments & Filings
-- Drafts
+The dashboard is the user's central control panel after authentication. It provides a one-glance summary of assigned work (pending transactions), recent activity, service distribution visualizations, and shortcuts to commonly used workflows.
+
+## High-level layout
+
+- Global header: top-most persistent area with search, notifications, user profile and primary navigation.
+- Primary navigation row: horizontal menu for access to major sections (Home, My Pending Approvals, My Approved Transactions, Transactions Timeline, Registered Entities, Reports & Analytics).
+- Main content area split into two columns:
+	- Left column: primary dashboard content (Pending Transactions cards grid, distribution chart, summary charts).
+	- Right column: Recent Activities timeline and quick actions.
+
+## Features
+
+### Global header & user greeting
+
+- Greeting text: "Welcome! [User Full Name]" — shown top-left beneath the header area.
+- Search control: small search input in the header to quickly locate transactions or entities (hotkey hint displayed: Ctrl K).
+- Notifications icon: bell with unread badge; clicking opens a short list or notifications center.
+- Profile menu: user avatar/username dropdown with links to "My Dashboard", "My Profile", "Sign Out".
+
+### Primary navigation (menu)
+
+- Items shown: Home (My Dashboard), My Pending Approvals, My Approved Transactions, Transactions Timeline, Registered Entities, Reports & Analytics.
+- The active item is visually highlighted and has an accessible label.
+
+### Pending Transactions panel
+
+This is the key area that lists quick-stat tiles for assigned/related transaction categories. Each tile contains:
+
+- An icon representing the category (circular icon background).
+- A numeric count (e.g., "41" for Total Transactions).
+- A short label (e.g., "Total Transactions", "Registrations", "Filings", "Changes").
+- Optional trend indicator (small arrow up/down and color) to show change vs previous period.
+
+Available categories are:
+
+- Total Transactions
+- Registrations
 - Queries
-- More (overflow menu)
+- Changes
+- Renewals
+- Official liquidation
+- Filings
+- Mergers
+- Divisions
+- Conversions
 
-Additional controls include:
-- Entity Information Search
-- Book an Appointment
+### Pending Transactions Distribution (pie chart)
 
-## Service Information Section
-A grid-based panel displaying categorized access to user services:
-- Drafts: Saved but incomplete applications.
-- All Entities: Overview of entities the user has access to.
-- Awaiting Approval: Items pending administrative or regulatory approval.
-- Reserved Names: Names successfully reserved by the user.
-- Queries: System-generated or staff-raised issues needing user response.
-- Consent Uploads: Portal for uploading required consents for filings.
-- Historical Data: Archive of past applications and entity records.
+- A visual distribution (pie chart) labeled "Service Distribution" and showing the total assigned and slice labels for each service (Changes, Renewals, Official liquidation, Filings, Mergers, Divisions, Registrations, Conversions).
+- Legend on the left with colored keys for each service type.
 
-Each item is a clickable card-style module.
+Behavior and notes:
+- Hovering a slice shows a tooltip with the service name, count and percentage.
+- Clicking a slice filters/right-navigates to the corresponding list of transactions.
 
-## Activities Timeline (Right Panel)
-Chronologically arranged user-specific activity log, helping track progress and system interactions. Each timeline item includes:
-- Type: e.g., Query, Change in Particulars, Filing.
-- Details: Short summary of the action or status update.
-- Time Indicator: Number of days since the activity occurred.
+### Recent Activities (right column timeline)
 
-Icons and color-coded markers enhance readability and urgency detection.
+- Chronological list of recent items (each row includes an icon, type link, short summary, and time-ago stamp).
 
-## Quick Links Section
-A set of shortcut tiles offering fast access to frequently used services:
-- Registration Services – Begin new entity registrations.
-- Name Search – Search available business names.
-- Entity Info Search – Retrieve data on registered entities.
-- Historical Transactions – Review previous application transactions.
+### "My Approved Transaction" summary (date range + chart)
 
-Each tile contains an icon, label, and button (e.g., Start Now, Proceed) for intuitive interaction.
-
-## User Interaction Flow
-1. User logs in, clicks the "My dashboard" section on the homepage and is greeted with a personalized message.
-2. Top navigation bar enables access to any core feature from any page.
-3. Service Information cards provide a high-level view of the user’s current application lifecycle.
-4. Activities Timeline gives a historical view with actionable insights.
-5. Quick Links provide fast entry points to high-demand services.
+- Date range picker (top-right of the chart card) to choose the date window for the summary.
+- Title: "Total Transactions Approval for Today : X" and a subtitle "Status Breakdown".
+- A large bar chart shows counts by subcategory within the selected date range.

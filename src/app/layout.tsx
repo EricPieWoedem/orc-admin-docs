@@ -22,8 +22,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "ORC Web & Mobile Guide",
-	description: "Documentation and guides for ORC web and mobile development",
+	title: "ORC Admin Web & Mobile Guide",
+	description: "Documentation and guides for ORC Admin web and mobile development",
 };
 
 export default function RootLayout({
