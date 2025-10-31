@@ -69,5 +69,49 @@ export const docs: DocGroup[] = [
 			},
 		],
 	},
+	{
+		id: "administration-management",
+		title: "Administration managment",
+		description:
+			"Learn how to do administration settings like users mangement, roles management, fees managment etc",
+		docs: [
+			{
+				id: "manage-users",
+				title: "User Management",
+				description: "Learn how to manage users in the system.",
+				pageImage: null,
+			},
+			{
+				id: "manage-officers",
+				title: "Officer Management",
+				description: "Learn how to manage officers in the system.",
+				pageImage: null,
+			},
+			{
+				id: "manage-roles",
+				title: "Role Management",
+				description: "Learn how to manage roles in the system.",
+				pageImage: null,
+			},
+			{
+				id: "manage-fees",
+				title: "Fee Management",
+				description: "Learn how to manage fees in the system.",
+				pageImage: null,
+			},
+			{
+				id: "manage-operation-settings",
+				title: "Operation Settings Management",
+				description: "Learn how to manage operation settings in the system.",
+				pageImage: null,
+			},
+			{
+				id: "view-reports",
+				title: "Reports & Analytics",
+				description: "Learn how to view reports and analytics in the system.",
+				pageImage: null,
+			}
+		],
+	},
 ];
 
