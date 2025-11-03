@@ -1,40 +1,51 @@
 export type Doc = {
-	id: string;
-	title: string;
-	description: string;
-	pageImage: {
-		url: string;
-		alt: string;
-	} | null;
+  id: string;
+  title: string;
+  description: string;
+  pageImage?: {
+    url: string;
+    alt: string;
+  } | null;
+  docs?: Doc[];
 };
 
-export type DocGroup = Omit<Doc, "pageImage"> & { docs: Doc[] };
+export const docs: Doc[] = [];
 
-export function getDocGroups(): DocGroup[] {
-	return docs;
+export function getDocGroups(): Doc[] {
+  return docs;
+}
+
+function findDocAndParent(slug: string, nodes: Doc[], parent: Doc | null = null) {
+  for (const node of nodes) {
+    if (node.id === slug) {
+      return { doc: node, docGroup: parent };
+    }
+    if (node.docs && node.docs.length > 0) {
+      const found = findDocAndParent(slug, node.docs, node);
+      if (found.doc) return found;
+    }
+  }
+  return { doc: null, docGroup: null };
 }
 
 export async function getDoc(
-	slug: string,
-): Promise<(Doc & { docGroup: DocGroup; next: Doc | null }) | null> {
-	let docGroup = docs.find(({ docs }) => docs.some(({ id }) => id === slug));
-
-	if (!docGroup) {
-		return null;
-	}
-
-	let index = docGroup.docs.findIndex(({ id }) => id === slug);
-
-	return {
-		...docGroup.docs[index],
-		docGroup,
-		next: index < docGroup.docs.length - 1 ? docGroup.docs[index + 1] : null,
-	};
+  slug: string,
+): Promise<(Doc & { docGroup: Doc | null; next: Doc | null }) | null> {
+  const { doc, docGroup } = findDocAndParent(slug, docs);
+  if (!doc) return null;
+  const siblings = docGroup ? docGroup.docs ?? [] : docs;
+  const index = siblings.findIndex(({ id }) => id === slug);
+  return {
+    ...doc,
+    docGroup,
+    next: index >= 0 && index < siblings.length - 1 ? siblings[index + 1] : null,
+  };
 }
 
 export async function getDocumentationContent(slug: string) {
-	return (await import(`@/data/docs/${slug}.mdx`)).default;
+  return (await import(`@/data/docs/${slug}.mdx`)).default;
 }
+
 
 export const docs: DocGroup[] = [
 	{
