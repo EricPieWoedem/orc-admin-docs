@@ -51,6 +51,7 @@ export const docs: DocGroup[] = [
 				pageImage: {
 					url: `/welcome.png`,
 					alt: "Log in screen of ORC Admin Web Application",
+				},
 			},
 			{
 				id: "sign-in",
