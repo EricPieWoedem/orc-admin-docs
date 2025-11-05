@@ -110,6 +110,12 @@ export const docs: DocGroup[] = [
 				title: "Reports & Analytics",
 				description: "Learn how to view reports and analytics in the system.",
 				pageImage: null,
+			},
+			{
+				id: "service-assignment",
+				title: "Service Assignment",
+				description: "Learn how to assign services in the system.",
+				pageImage: null,
 			}
 		],
 	},
